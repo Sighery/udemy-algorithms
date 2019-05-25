@@ -81,14 +81,20 @@ class DoublyLinkedList {
 	}
 
 	remove(index) {
-		if (index === 0) {
+		if (this.length <= 1) {
+			throw new Error("Can't remove when there's only one node left")
+		} else if (index === 0) {
 			this.head = this.head.next;
 			this.head.prev = null;
 			this.length--;
-		} else if (index === (this.length -1)) {
+
+			return this;
+		} else if (index === (this.length -1) || index === -1) {
 			this.tail = this.tail.prev;
 			this.tail.next = null;
 			this.length--;
+
+			return this;
 		} else if (index >= this.length) {
 			throw new Error("Can't remove non-existing index");
 		}
