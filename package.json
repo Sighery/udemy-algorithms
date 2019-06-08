@@ -1,0 +1,22 @@
+{
+	"name": "udemy-algorithms",
+	"version": "0.1.0",
+	"description": "Algorithms solutions for the following Udemy course https://www.udemy.com/master-the-coding-interview-data-structures-algorithms",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Sighery/udemy-algorithms.git"
+	},
+	"author": "Sighery",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Sighery/udemy-algorithms/issues"
+	},
+	"homepage": "https://github.com/Sighery/udemy-algorithms#readme",
+	"devDependencies": {
+		"eslint": "^5.16.0"
+	}
+}
