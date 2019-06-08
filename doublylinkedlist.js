@@ -4,7 +4,7 @@ class DoublyLinkedListNode {
 		this.next = null;
 		this.prev = null;
 	}
-};
+}
 
 
 class DoublyLinkedList {
@@ -82,7 +82,7 @@ class DoublyLinkedList {
 
 	remove(index) {
 		if (this.length <= 1) {
-			throw new Error("Can't remove when there's only one node left")
+			throw new Error("Can't remove when there's only one node left");
 		} else if (index === 0) {
 			this.head = this.head.next;
 			this.head.prev = null;
@@ -187,7 +187,7 @@ class DoublyLinkedList {
 
 		return output;
 	}
-};
+}
 
 
 if (typeof module != "undefined" && !module.parent) {
@@ -214,4 +214,4 @@ if (typeof module != "undefined" && !module.parent) {
 
 module.exports = {
 	DoublyLinkedList: DoublyLinkedList,
-}
+};

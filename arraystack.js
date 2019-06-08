@@ -5,7 +5,7 @@ class Stack {
 
 	peek() {
 		if (this.data.length >= 1) {
-			return this.data[this.data.length - 1]
+			return this.data[this.data.length - 1];
 		}
 
 		return null;
