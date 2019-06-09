@@ -4,7 +4,8 @@
 	"description": "Algorithms solutions for the following Udemy course https://www.udemy.com/master-the-coding-interview-data-structures-algorithms",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "eslint ."
 	},
 	"repository": {
 		"type": "git",
