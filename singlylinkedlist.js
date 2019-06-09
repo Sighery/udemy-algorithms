@@ -93,8 +93,8 @@ class SinglyLinkedList {
 			this.length--;
 
 			return this;
-		} else if (index >= this.length) {
-			throw new Error("Can't remove non-existing index");
+		} else if (index >= this.length || index < 0) {
+			throw new utils.IndexError("Can't remove non-existing index");
 		}
 
 		const previousNode = this.traverseToIndex(index - 1);
@@ -135,7 +135,7 @@ class SinglyLinkedList {
 
 	traverseToIndex(index) {
 		if (index >= this.length || index < 0) {
-			throw new Error("Can't get non-existing index");
+			throw new utils.IndexError("Can't get non-existing index");
 		}
 
 		for (let [i, node] of utils.enumerate(this.iterList())) {
@@ -143,8 +143,6 @@ class SinglyLinkedList {
 				return node;
 			}
 		}
-
-		throw new Error("Couldn't get index");
 	}
 
 	toString() {
@@ -167,24 +165,7 @@ class SinglyLinkedList {
 }
 
 
-if (typeof module != "undefined" && !module.parent) {
-	// Only execute this if the file is run directly
-	let test = new SinglyLinkedList(3);
-	test.append(2);
-	test.prepend(5);
-	console.log(test.toString());
-	test.insert(1, 4);
-	console.log(test.toString());
-	test.insert(1, 6);
-	console.log(test.toString());
-	test.remove(1);
-	console.log(test.toString());
-	test.reverse();
-	console.log(test.toString());
-	console.log(Array.from(test.iterList()).map(x => x.value));
-}
-
-
 module.exports = {
 	SinglyLinkedList: SinglyLinkedList,
+	SinglyLinkedListNode: SinglyLinkedListNode,
 };
