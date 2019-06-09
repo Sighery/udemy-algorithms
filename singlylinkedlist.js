@@ -1,3 +1,5 @@
+const utils = require("./utils.js");
+
 class SinglyLinkedListNode {
 	constructor(value) {
 		this.value = value;
@@ -16,13 +18,6 @@ class SinglyLinkedList {
 			this.head = null;
 			this.tail = null;
 			this.length = 0;
-		}
-	}
-
-	*_enumerate(iterator, start=0, step=1) {
-		for (let value of iterator) {
-			yield [start, value];
-			start = start + step;
 		}
 	}
 
@@ -143,7 +138,7 @@ class SinglyLinkedList {
 			throw new Error("Can't get non-existing index");
 		}
 
-		for (let [i, node] of this._enumerate(this.iterList())) {
+		for (let [i, node] of utils.enumerate(this.iterList())) {
 			if (i === index) {
 				return node;
 			}

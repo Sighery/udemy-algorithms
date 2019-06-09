@@ -1,3 +1,5 @@
+const utils = require("./utils.js");
+
 class DoublyLinkedListNode {
 	constructor(value) {
 		this.value = value;
@@ -12,13 +14,6 @@ class DoublyLinkedList {
 		this.head = new DoublyLinkedListNode(value);
 		this.tail = this.head;
 		this.length = 1;
-	}
-
-	*_enumerate(iterator, start=0, step=1) {
-		for (let value of iterator) {
-			yield [start, value];
-			start = start + step;
-		}
 	}
 
 	*iterList(reversed=false) {
@@ -115,7 +110,7 @@ class DoublyLinkedList {
 		let localTail = null;
 		let previousNode = null;
 
-		for (let [i, currentNode] of this._enumerate(this.iterList(true))) {
+		for (let [i, currentNode] of utils.enumerate(this.iterList(true))) {
 			let replicatedNode = new DoublyLinkedListNode(currentNode.value);
 			replicatedNode.next = currentNode.next;
 			replicatedNode.prev = currentNode.prev;
@@ -162,7 +157,7 @@ class DoublyLinkedList {
 			iterReversed = true;
 		}
 
-		let generator = this._enumerate(
+		let generator = utils.enumerate(
 			this.iterList(iterReversed), start, step
 		);
 		for (let [i, node] of generator) {
