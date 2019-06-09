@@ -1,5 +1,6 @@
 {
 	"exclude": [
-		"tests/test_*.js"
+		"tests/test_*.js",
+		"ava.config.js"
 	]
 }
