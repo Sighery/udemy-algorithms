@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Sighery/udemy-algorithms.svg?branch=master)](https://travis-ci.com/Sighery/udemy-algorithms)
+
 This repository will hold some of the coding exercises from [a Udemy course on
 Data Structures and Algorithms
 ](https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/).
