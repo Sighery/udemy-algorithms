@@ -171,7 +171,7 @@ test("Test insert on index 0 acts as prepend", t => {
 });
 
 
-test.failing("Test insert on smaller than last negative index acts as prepend", t => {
+test("Test insert on smaller than last negative index acts as prepend", t => {
 	const newList = new DoublyLinkedList(2);
 	newList.insert(-999, 1);
 
@@ -191,7 +191,7 @@ test("Test insert on bigger than last index acts as append", t => {
 });
 
 
-test.failing("Test insert on index -1 inserts before last element", t => {
+test("Test insert on index -1 inserts before last element", t => {
 	const newList = new DoublyLinkedList(2);
 	newList.insert(-1, 1);
 
@@ -225,7 +225,7 @@ test("Test insert works with negative index if used as expected", t => {
 });
 
 
-test.failing("Test remove throws IndexError with positive non-existing index", t => {
+test("Test remove throws IndexError with positive non-existing index", t => {
 	const newList = new DoublyLinkedList();
 	t.throws(
 		() => newList.remove(999),
@@ -237,7 +237,7 @@ test.failing("Test remove throws IndexError with positive non-existing index", t
 });
 
 
-test.failing("Test remove throws IndexError with negative non-existing index", t => {
+test("Test remove throws IndexError with negative non-existing index", t => {
 	const newList = new DoublyLinkedList();
 	t.throws(
 		() => newList.remove(999),
@@ -292,7 +292,7 @@ test("Test remove on last positive index works as expected", t => {
 });
 
 
-test.failing("Test remove on last negative index works as expected", t => {
+test("Test remove on last negative index works as expected", t => {
 	const newList = new DoublyLinkedList(1);
 	newList.append(2);
 	newList.remove(-2);

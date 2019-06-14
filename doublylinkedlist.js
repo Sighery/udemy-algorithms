@@ -73,7 +73,7 @@ class DoublyLinkedList {
 	}
 
 	insert(index, value) {
-		if (index === 0) {
+		if (index === 0 || index <= -this.length) {
 			this.prepend(value);
 			return this;
 		} else if (index >= this.length) {
@@ -100,7 +100,7 @@ class DoublyLinkedList {
 			this.length = 0;
 
 			return this;
-		} else if (index === 0) {
+		} else if (index === 0 || index === -this.length) {
 			this.head = this.head.next;
 			this.head.prev = null;
 			this.length--;
@@ -112,7 +112,7 @@ class DoublyLinkedList {
 			this.length--;
 
 			return this;
-		} else if (index >= this.length) {
+		} else if (index >= this.length || index < -this.length) {
 			throw new utils.IndexError("Can't remove non-existing index");
 		}
 
