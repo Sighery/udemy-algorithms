@@ -209,28 +209,6 @@ class DoublyLinkedList {
 }
 
 
-if (typeof module != "undefined" && !module.parent) {
-	// Only execute this if the file is run directly
-	let test = new DoublyLinkedList(3);
-	test.append(2);
-	test.prepend(5);
-	console.log(test.toString());
-	test.insert(1, 4);
-	console.log(test.toString());
-	test.insert(1, 6);
-	console.log(test.toString());
-	test.remove(1);
-	console.log(test.toString());
-	test.reverse();
-	console.log(test.toString());
-	console.log(Array.from(test.iterList()).map(x => x.value));
-	console.log(
-		"Reverse order: ",
-		Array.from(test.iterList(true)).map(x => x.value)
-	);
-}
-
-
 module.exports = {
 	DoublyLinkedList: DoublyLinkedList,
 	DoublyLinkedListNode: DoublyLinkedListNode,

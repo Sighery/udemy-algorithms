@@ -148,16 +148,22 @@ test("Test traverseToIndex throws IndexError with non-existing negative index", 
 test("Test traverseToIndex works with positive index if used as expected", t => {
 	const newList = new DoublyLinkedList(1);
 	newList.append(2);
+	newList.append(3);
 
-	t.is(newList.traverseToIndex(1), newList.tail);
+	t.is(newList.traverseToIndex(0), newList.head);
+	t.is(newList.traverseToIndex(1), newList.head.next);
+	t.is(newList.traverseToIndex(2), newList.tail);
 });
 
 
 test("Test traverseToIndex works with negative index if used as expected", t => {
 	const newList = new DoublyLinkedList(1);
 	newList.append(2);
+	newList.append(3);
 
-	t.is(newList.traverseToIndex(-2), newList.head);
+	t.is(newList.traverseToIndex(-1), newList.tail);
+	t.is(newList.traverseToIndex(-2), newList.tail.prev);
+	t.is(newList.traverseToIndex(-3), newList.head);
 });
 
 
