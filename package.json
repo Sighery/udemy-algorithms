@@ -6,6 +6,7 @@
 	"scripts": {
 		"test": "nyc ava",
 		"test-verbose": "nyc ava -v",
+		"test-watch": "nyc ava -v --watch",
 		"lint": "eslint ."
 	},
 	"repository": {
