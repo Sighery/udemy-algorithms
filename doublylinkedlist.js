@@ -91,7 +91,7 @@ class DoublyLinkedList {
 
 			return this;
 		} else if (index >= this.length) {
-			throw new Error("Can't remove non-existing index");
+			throw new utils.IndexError("Can't remove non-existing index");
 		}
 
 		const indexNode = this.traverseToIndex(index);
@@ -139,7 +139,7 @@ class DoublyLinkedList {
 
 	traverseToIndex(index) {
 		if (index >= this.length || index < -this.length) {
-			throw new Error("Can't get non-existing index");
+			throw new utils.IndexError("Can't get non-existing index");
 		}
 
 		// Small optimization here. If index > (length / 2) then start looping
@@ -165,8 +165,6 @@ class DoublyLinkedList {
 				return node;
 			}
 		}
-
-		throw new Error("Couldn't get index");
 	}
 
 	toString() {
@@ -209,4 +207,5 @@ if (typeof module != "undefined" && !module.parent) {
 
 module.exports = {
 	DoublyLinkedList: DoublyLinkedList,
+	DoublyLinkedListNode: DoublyLinkedListNode,
 };
