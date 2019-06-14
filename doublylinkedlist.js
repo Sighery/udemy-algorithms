@@ -10,10 +10,16 @@ class DoublyLinkedListNode {
 
 
 class DoublyLinkedList {
-	constructor(value) {
-		this.head = new DoublyLinkedListNode(value);
-		this.tail = this.head;
-		this.length = 1;
+	constructor(value=null) {
+		if (value !== null) {
+			this.head = new DoublyLinkedListNode(value);
+			this.tail = this.head;
+			this.length = 1;
+		} else {
+			this.head = null;
+			this.tail = null;
+			this.length = 0;
+		}
 	}
 
 	*iterList(reversed=false) {
@@ -36,21 +42,33 @@ class DoublyLinkedList {
 
 	append(value) {
 		const newNode = new DoublyLinkedListNode(value);
-		newNode.prev = this.tail;
-		this.tail.next = newNode;
-		this.tail = newNode;
-		this.length++;
 
+		if (this.head === null && this.tail === null) {
+			this.head = newNode;
+			this.tail = newNode;
+		} else {
+			newNode.prev = this.tail;
+			this.tail.next = newNode;
+			this.tail = newNode;
+		}
+
+		this.length++;
 		return this;
 	}
 
 	prepend(value) {
 		const newNode = new DoublyLinkedListNode(value);
-		this.head.prev = newNode;
-		newNode.next = this.head;
-		this.head = newNode;
-		this.length++;
 
+		if (this.head === null && this.tail === null) {
+			this.head = newNode;
+			this.tail = newNode;
+		} else {
+			this.head.prev = newNode;
+			newNode.next = this.head;
+			this.head = newNode;
+		}
+
+		this.length++;
 		return this;
 	}
 
@@ -76,8 +94,12 @@ class DoublyLinkedList {
 	}
 
 	remove(index) {
-		if (this.length <= 1) {
-			throw new Error("Can't remove when there's only one node left");
+		if ((index === 0 || index === -this.length) && this.length <= 1) {
+			this.head = null;
+			this.tail = null;
+			this.length = 0;
+
+			return this;
 		} else if (index === 0) {
 			this.head = this.head.next;
 			this.head.prev = null;
@@ -168,6 +190,10 @@ class DoublyLinkedList {
 	}
 
 	toString() {
+		if (!this.length) {
+			return "DoublyLinkedList()";
+		}
+
 		let output = "";
 
 		for (let node of this.iterList()) {

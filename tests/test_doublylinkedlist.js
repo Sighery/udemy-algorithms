@@ -16,7 +16,7 @@ test("Test Linked List Node creation", t => {
 });
 
 
-test.failing("Test empty Linked List creation", t => {
+test("Test empty Linked List creation", t => {
 	const newList = new DoublyLinkedList();
 	const result = Array.from(newList.iterList()).map(x => x.value);
 	t.is(newList.length, 0);
@@ -32,7 +32,7 @@ test("Test Linked List creation", t => {
 });
 
 
-test.failing("Test Linked List append with empty list", t => {
+test("Test Linked List append with empty list", t => {
 	const newList = new DoublyLinkedList();
 	newList.append(1);
 	newList.append(2);
@@ -53,7 +53,7 @@ test("Test Linked List append with non-empty list", t => {
 });
 
 
-test.failing("Test Linked List prepend with empty list", t => {
+test("Test Linked List prepend with empty list", t => {
 	const newList = new DoublyLinkedList();
 	newList.prepend(2);
 	newList.prepend(1);
@@ -96,7 +96,7 @@ test("Test iterList reversed returns the same as looping over the references", t
 });
 
 
-test.failing("Test toString of empty Linked List", t => {
+test("Test toString of empty Linked List", t => {
 	const newList = new DoublyLinkedList();
 
 	t.is(newList.toString(), "DoublyLinkedList()");
@@ -191,17 +191,17 @@ test("Test insert on bigger than last index acts as append", t => {
 });
 
 
-// test.failing("Test insert on index -1 inserts before last element", t => {
-// 	const newList = new DoublyLinkedList(2);
-// 	newList.insert(-1, 1);
-//
-// 	const result = Array.from(newList.iterList()).map(x => x.value);
-// 	t.is(newList.length, 2);
-// 	t.deepEqual(result, [1, 2]);
-// });
+test.failing("Test insert on index -1 inserts before last element", t => {
+	const newList = new DoublyLinkedList(2);
+	newList.insert(-1, 1);
+
+	const result = Array.from(newList.iterList()).map(x => x.value);
+	t.is(newList.length, 2);
+	t.deepEqual(result, [1, 2]);
+});
 
 
-test.failing("Test insert works with positive index if used as expected", t => {
+test("Test insert works with positive index if used as expected", t => {
 	const newList = new DoublyLinkedList();
 	newList.append(3);
 	newList.prepend(1);
@@ -213,7 +213,7 @@ test.failing("Test insert works with positive index if used as expected", t => {
 });
 
 
-test.failing("Test insert works with negative index if used as expected", t => {
+test("Test insert works with negative index if used as expected", t => {
 	const newList = new DoublyLinkedList();
 	newList.append(3);
 	newList.prepend(1);
@@ -249,7 +249,7 @@ test.failing("Test remove throws IndexError with negative non-existing index", t
 });
 
 
-test.failing("Test remove on one element list empties it", t => {
+test("Test remove on one element list empties it", t => {
 	const newList = new DoublyLinkedList(1);
 	newList.remove(0);
 
