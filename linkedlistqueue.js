@@ -1,54 +1,33 @@
 const SinglyLinkedList = require("./singlylinkedlist.js").SinglyLinkedList;
+const IndexError = require("./utils.js").IndexError;
 
 
 class Queue {
 	constructor() {
-		this.data = null;
+		this.data = new SinglyLinkedList();
 	}
 
 	peek() {
-		if (this.data !== null) {
-			return this.data.traverseToIndex(0).value;
+		if (this.data.length === 0) {
+			throw new IndexError("Can't peek on an empty Queue");
 		}
 
-		return null;
+		return this.data.traverseToIndex(0).value;
 	}
 
 	enqueue(value) {
-		if (!this.data) {
-			this.data = new SinglyLinkedList(value);
-		} else {
-			this.data.append(value);
-		}
+		this.data.append(value);
 	}
 
 	dequeue() {
-		if (this.data === null || this.data.length === 1) {
-			this.data = null;
-		} else {
-			this.data.remove(0);
+		if (this.data.length === 0) {
+			throw new IndexError("Can't dequeue on an empty Queue");
 		}
+
+		return this.data.remove(0);
 	}
 }
 
-
-if (typeof module != "undefined" && !module.parent) {
-	// Only execute this if the file is run directly
-	const myQueue = new Queue();
-	myQueue.enqueue("Joy");
-	myQueue.enqueue("Matt");
-	myQueue.enqueue("Pavel");
-	myQueue.enqueue("Samir");
-	console.log(myQueue.peek());
-	myQueue.dequeue();
-	console.log(myQueue.peek());
-	myQueue.dequeue();
-	console.log(myQueue.peek());
-	myQueue.dequeue();
-	console.log(myQueue.peek());
-	myQueue.dequeue();
-	console.log(myQueue.peek());
-}
 
 module.exports = {
 	Queue: Queue,
