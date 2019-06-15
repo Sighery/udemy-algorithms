@@ -1,43 +1,31 @@
-const DoublyLinkedList = require("./doublylinkedlist.js").DoublyLinkedList;
+const SinglyLinkedList = require("./singlylinkedlist.js").SinglyLinkedList;
+const IndexError = require("./utils.js").IndexError;
+
 
 class Stack {
-	constructor(){
-		this.data = null;
+	constructor() {
+		this.data = new SinglyLinkedList();
 	}
 
 	peek() {
-		if (this.data !== null && this.data.length >= 1) {
-			return this.data.traverseToIndex(-1).value;
+		if (this.data.length === 0) {
+			throw new IndexError("Can't peek on an empty Stack");
 		}
-		return null;
+
+		return this.data.traverseToIndex(0).value;
 	}
 
 	push(value) {
-		if (!this.data) {
-			this.data = new DoublyLinkedList(value);
-		} else {
-			this.data.append(value);
-		}
+		this.data.prepend(value);
 	}
 
 	pop() {
-		if (this.data !== null && this.data.length === 1) {
-			this.data = null;
-		} else if (this.data !== null && this.data.length > 1) {
-			this.data.remove(-1);
+		if (this.data.length === 0) {
+			throw new IndexError("Can't pop on an empty Stack");
 		}
-	}
-}
 
-if (typeof module != "undefined" && !module.parent) {
-	// Only execute this if the file is run directly
-	const myStack = new Stack();
-	myStack.push("Google");
-	console.log(myStack.peek());
-	myStack.push("Udemy");
-	console.log(myStack.peek());
-	myStack.push("Discord");
-	console.log(myStack.peek());
+		return this.data.remove(0);
+	}
 }
 
 
