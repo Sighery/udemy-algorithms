@@ -94,26 +94,32 @@ class DoublyLinkedList {
 	}
 
 	remove(index) {
-		if ((index === 0 || index === -this.length) && this.length <= 1) {
+		if (index >= this.length || index < -this.length) {
+			throw new utils.IndexError("Can't remove non-existing index");
+		} else if ((index === 0 || index === -this.length) && this.length === 1) {
+			const oldValue = this.head.value;
+
 			this.head = null;
 			this.tail = null;
 			this.length = 0;
 
-			return this;
+			return oldValue;
 		} else if (index === 0 || index === -this.length) {
+			const oldValue = this.head.value;
+
 			this.head = this.head.next;
 			this.head.prev = null;
 			this.length--;
 
-			return this;
+			return oldValue;
 		} else if (index === (this.length -1) || index === -1) {
+			const oldValue = this.tail.value;
+
 			this.tail = this.tail.prev;
 			this.tail.next = null;
 			this.length--;
 
-			return this;
-		} else if (index >= this.length || index < -this.length) {
-			throw new utils.IndexError("Can't remove non-existing index");
+			return oldValue;
 		}
 
 		const indexNode = this.traverseToIndex(index);
@@ -124,7 +130,7 @@ class DoublyLinkedList {
 		nextNode.prev = previousNode;
 		this.length--;
 
-		return this;
+		return indexNode.value;
 	}
 
 	reverse() {

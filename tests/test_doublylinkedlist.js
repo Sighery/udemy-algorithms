@@ -257,7 +257,8 @@ test("Test remove throws IndexError with negative non-existing index", t => {
 
 test("Test remove on one element list empties it", t => {
 	const newList = new DoublyLinkedList(1);
-	newList.remove(0);
+
+	t.is(newList.remove(0), 1);
 
 	const result = Array.from(newList.iterList()).map(x => x.value);
 	t.is(newList.length, 0);
@@ -268,7 +269,8 @@ test("Test remove on one element list empties it", t => {
 test("Test remove on index zero works as expected", t => {
 	const newList = new DoublyLinkedList(1);
 	newList.append(2);
-	newList.remove(0);
+
+	t.is(newList.remove(0), 1);
 
 	const result = Array.from(newList.iterList()).map(x => x.value);
 	t.is(newList.length, 1);
@@ -279,7 +281,8 @@ test("Test remove on index zero works as expected", t => {
 test("Test remove on index -1 works as expected", t => {
 	const newList = new DoublyLinkedList(1);
 	newList.append(2);
-	newList.remove(-1);
+
+	t.is(newList.remove(-1), 2);
 
 	const result = Array.from(newList.iterList()).map(x => x.value);
 	t.is(newList.length, 1);
@@ -290,7 +293,8 @@ test("Test remove on index -1 works as expected", t => {
 test("Test remove on last positive index works as expected", t => {
 	const newList = new DoublyLinkedList(1);
 	newList.append(2);
-	newList.remove(1);
+
+	t.is(newList.remove(1), 2);
 
 	const result = Array.from(newList.iterList()).map(x => x.value);
 	t.is(newList.length, 1);
@@ -301,7 +305,8 @@ test("Test remove on last positive index works as expected", t => {
 test("Test remove on last negative index works as expected", t => {
 	const newList = new DoublyLinkedList(1);
 	newList.append(2);
-	newList.remove(-2);
+
+	t.is(newList.remove(-2), 1);
 
 	const result = Array.from(newList.iterList()).map(x => x.value);
 	t.is(newList.length, 1);
@@ -313,7 +318,8 @@ test("Test remove on non-edge positive index works as expected", t => {
 	const newList = new DoublyLinkedList(1);
 	newList.append(2);
 	newList.append(3);
-	newList.remove(1);
+
+	t.is(newList.remove(1), 2);
 
 	const result = Array.from(newList.iterList()).map(x => x.value);
 	t.is(newList.length, 2);
@@ -325,7 +331,8 @@ test("Test remove on non-edge negative index works as expected", t => {
 	const newList = new DoublyLinkedList(1);
 	newList.append(2);
 	newList.append(3);
-	newList.remove(-2);
+
+	t.is(newList.remove(-2), 2);
 
 	const result = Array.from(newList.iterList()).map(x => x.value);
 	t.is(newList.length, 2);

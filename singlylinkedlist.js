@@ -82,19 +82,23 @@ class SinglyLinkedList {
 	}
 
 	remove(index) {
-		if (index === 0 && this.length <= 1) {
+		if (index >= this.length || index < 0) {
+			throw new utils.IndexError("Can't remove non-existing index");
+		} else if (index === 0 && this.length === 1) {
+			const oldValue = this.head.value;
+
 			this.head = null;
 			this.tail = null;
 			this.length = 0;
 
-			return this;
+			return oldValue;
 		} else if (index === 0) {
+			const oldValue = this.head.value;
+
 			this.head = this.head.next;
 			this.length--;
 
-			return this;
-		} else if (index >= this.length || index < 0) {
-			throw new utils.IndexError("Can't remove non-existing index");
+			return oldValue;
 		}
 
 		const previousNode = this.traverseToIndex(index - 1);
@@ -104,7 +108,7 @@ class SinglyLinkedList {
 		previousNode.next = nextNode;
 		this.length--;
 
-		return this;
+		return indexNode.value;
 	}
 
 	reverse() {
@@ -129,8 +133,6 @@ class SinglyLinkedList {
 
 		this.head = localHead;
 		this.tail = localTail;
-
-		return this;
 	}
 
 	traverseToIndex(index) {
