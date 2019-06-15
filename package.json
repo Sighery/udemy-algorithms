@@ -5,8 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "nyc ava",
-		"test-verbose": "nyc ava -v",
-		"test-watch": "nyc ava -v --watch",
+		"test:verbose": "nyc ava -v",
+		"test:watch": "ava -v --watch",
 		"lint": "eslint ."
 	},
 	"repository": {
