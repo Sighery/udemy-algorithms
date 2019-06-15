@@ -1,5 +1,8 @@
+const IndexError = require("./utils.js").IndexError;
+
+
 class Stack {
-	constructor(){
+	constructor() {
 		this.data = [];
 	}
 
@@ -8,7 +11,7 @@ class Stack {
 			return this.data[this.data.length - 1];
 		}
 
-		return null;
+		throw new IndexError("Can't peek on an empty Stack");
 	}
 
 	push(value) {
@@ -16,23 +19,12 @@ class Stack {
 	}
 
 	pop() {
-		return this.data.pop();
-	}
-}
+		if (this.data.length >= 1) {
+			return this.data.pop();
+		}
 
-if (typeof module != "undefined" && !module.parent) {
-	// Only execute this if the file is run directly
-	const myStack = new Stack();
-	myStack.push("Google");
-	console.log(myStack.peek());
-	myStack.push("Udemy");
-	console.log(myStack.peek());
-	myStack.push("Discord");
-	console.log(myStack.peek());
-	console.log("Removing elements...");
-	console.log(myStack.pop());
-	console.log(myStack.pop());
-	console.log(myStack.pop());
+		throw new IndexError("Can't pop on an empty Stack");
+	}
 }
 
 
