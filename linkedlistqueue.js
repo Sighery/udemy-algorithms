@@ -8,7 +8,7 @@ class Queue {
 	}
 
 	peek() {
-		if (this.data.length === 0) {
+		if (this.isEmpty()) {
 			throw new IndexError("Can't peek on an empty Queue");
 		}
 
@@ -20,11 +20,15 @@ class Queue {
 	}
 
 	dequeue() {
-		if (this.data.length === 0) {
+		if (this.isEmpty()) {
 			throw new IndexError("Can't dequeue on an empty Queue");
 		}
 
 		return this.data.remove(0);
+	}
+
+	isEmpty() {
+		return this.data.length === 0;
 	}
 }
 

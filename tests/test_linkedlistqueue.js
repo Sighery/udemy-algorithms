@@ -19,6 +19,21 @@ test("Test enqueue works as expected", t => {
 });
 
 
+test("Test isEmpty returns True if empty", t => {
+	const newQueue = new Queue();
+
+	t.true(newQueue.isEmpty());
+});
+
+
+test("Test isEmpty returns False if not empty", t => {
+	const newQueue = new Queue();
+	newQueue.enqueue(1);
+
+	t.false(newQueue.isEmpty());
+});
+
+
 test("Test peek on empty Queue throws IndexError", t => {
 	const newQueue = new Queue();
 
