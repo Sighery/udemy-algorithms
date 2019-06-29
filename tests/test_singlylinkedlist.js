@@ -1,7 +1,7 @@
 import test from "ava";
 
-import {SinglyLinkedList, SinglyLinkedListNode} from "../singlylinkedlist";
-import {IndexError} from "../utils";
+import {SinglyLinkedList, SinglyLinkedListNode} from "../src/singlylinkedlist";
+import {IndexError} from "../src/utils";
 
 
 test("Test Linked List Node creation", t => {

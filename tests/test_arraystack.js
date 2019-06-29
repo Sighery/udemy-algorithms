@@ -1,7 +1,7 @@
 import test from "ava";
 
-import {Stack} from "../arraystack";
-import {IndexError} from "../utils";
+import {Stack} from "../src/arraystack";
+import {IndexError} from "../src/utils";
 
 
 test("Test empty Stack creation", t => {

@@ -1,7 +1,7 @@
 import test from "ava";
 
-import {Queue} from "../linkedlistqueue";
-import {IndexError} from "../utils";
+import {Queue} from "../src/linkedlistqueue";
+import {IndexError} from "../src/utils";
 
 
 test("Test empty Queue creation", t => {

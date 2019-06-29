@@ -1,6 +1,6 @@
 import test from "ava";
 
-import {enumerate} from "../utils";
+import {enumerate} from "../src/utils";
 
 
 function* dummyGenerator() {

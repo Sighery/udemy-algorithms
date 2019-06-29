@@ -1,7 +1,7 @@
 import test from "ava";
 
-import {DoublyLinkedList, DoublyLinkedListNode} from "../doublylinkedlist";
-import {IndexError} from "../utils";
+import {DoublyLinkedList, DoublyLinkedListNode} from "../src/doublylinkedlist";
+import {IndexError} from "../src/utils";
 
 
 test("Test Linked List Node creation", t => {
